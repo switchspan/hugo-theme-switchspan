@@ -1,32 +1,64 @@
-
-<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-  <div class="sidebar-module sidebar-module-inset">
-    <h4>About</h4>
-    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-  </div>
-  <div class="sidebar-module">
-    <h4>Archives</h4>
-    <ol class="list-unstyled">
-      <li><a href="#">March 2014</a></li>
-      <li><a href="#">February 2014</a></li>
-      <li><a href="#">January 2014</a></li>
-      <li><a href="#">December 2013</a></li>
-      <li><a href="#">November 2013</a></li>
-      <li><a href="#">October 2013</a></li>
-      <li><a href="#">September 2013</a></li>
-      <li><a href="#">August 2013</a></li>
-      <li><a href="#">July 2013</a></li>
-      <li><a href="#">June 2013</a></li>
-      <li><a href="#">May 2013</a></li>
-      <li><a href="#">April 2013</a></li>
-    </ol>
-  </div>
-  <div class="sidebar-module">
-    <h4>Elsewhere</h4>
-    <ol class="list-unstyled">
-      <li><a href="#">GitHub</a></li>
-      <li><a href="#">Twitter</a></li>
-      <li><a href="#">Facebook</a></li>
-    </ol>
-  </div>
-</div><!-- /.blog-sidebar -->
+{{ $baseurl := .Site.BaseURL }}
+<div class="col-md-3">
+    <div class="sidebar-about">
+        <img id="headshot" src="{{ $baseurl }}/images/ken-head.jpg" border="0" alt="A picture of my head head" width="130" />
+        <p>Hi, I'm Ken. I want to help you enjoy using technology and find the right services for your needs. As a solopreneur, you have a lot to worry about. Technology shouldn't be one of your worries.</p>
+    </div>
+    {{ if isset .Data "Pages" }}
+	<div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Recent articles</h4>
+        </div>
+        <div class="panel-body">
+		{{ range first 5 (where .Data.Pages "Section" "post") }}
+		<span class="bullet">&raquo;</span> <a href="{{ .Permalink }}/index.html">{{ .Title }}</a>
+        <br/>
+		{{ end }}
+		</div>
+	</div>
+	{{ end }}
+	{{ with .Site.Params.googleSearchSite }}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <script type="text/rocketscript">
+                function site_search(obj) { obj.q.value = "site:{{.}} " + obj.ss_q.value; }
+            </script>
+            <form action="http://www.google.com/search" method="get" onSubmit="site_search(this)" role="form">
+                <input name="q" type="hidden" />
+                <div class="form-group">
+                    <input name="ss_q" type="text" placeholder="Search this site" class="form-control" />
+                </div>
+                <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+            </form>
+        </div>
+    </div>
+    {{ end }}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Categories</h4>
+        </div>
+        <div class="panel-body">
+            <ul id="all-categories">
+            	{{ $baseurl := .Site.BaseURL }}
+				{{ range $key, $value := .Site.Taxonomies.categories }}
+				<li><a href="{{ $baseurl }}/categories/{{ $key | urlize }}/index.html">{{ $key | title }}</a></li>
+				{{ end }}
+            </ul>
+        </div>
+    </div>
+    <div class="text-center">
+    	{{ with .Site.Params.githubName }}
+			 <a href="http://github.com/{{.}}" target="_blank" class="btn btn-info btn-xs"><i class="fa fa-github-square fa-2x"></i></a>
+        {{ end }}
+        {{ with .Site.Params.twitterName }}
+        	<a href="https://www.twitter.com/{{.}}" target="_blank" class="btn btn-info btn-xs"><i class="fa fa-twitter-square fa-2x"></i></a>
+        {{ end }}
+        {{ with .Site.Params.googlePlusName}}
+        	<a href="http://plus.google.com/{{.}}?rel=author" target="_blank" class="btn btn-info btn-xs"><i class="fa fa-google-plus-square fa-2x"></i></a>
+        {{ end }}
+        {{ with .Site.Params.facebookName }}
+    		<a href="https://www.facebook.com/{{.}}" target="_blank" class="btn btn-info btn-xs"><i class="fa fa-facebook-square fa-2x"></i></a>
+        {{ end }}
+        <a href="{{ .Site.BaseURL }}index.xml" class="btn btn-info btn-xs"><i class="fa fa-rss-square fa-2x"></i></a>
+    </div>
+</div>
