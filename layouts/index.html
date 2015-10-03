@@ -1,110 +1,19 @@
 {{ partial "header.html" . }}
 
-<body>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="http://techmadeplain.com/"><img src="http://techmadeplain.com/techmadeplain-logo.png" alt="Tech Made Plain" width="178" height="45" /></a>
-            </div>
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="http://techmadeplain.com/article/">archives</a></li>
-                    <li><a href="http://techmadeplain.com/about/">about me</a></li>
-                </ul>
-            </div>
+<body>  
+{{ partial "topnav.html" . }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            {{ range first 10 .Site.Pages.ByDate.Reverse }}
+              {{ if eq .Type "post" }}
+                {{ .Render "summary"}}
+              {{ end }}
+            {{ end }}
         </div>
-    </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="post-summary">
-                    <h2><a href="http://techmadeplain.com/2014/the-downside-of-going-viral">The Downside of Going Viral</a></h2>
-                    <div class="content">
-                        <p>It&rsquo;s a great feeling when someone appreciates what you&rsquo;ve written or created. I know I&rsquo;m not the only one who enjoys having a Facebook update get a lot of likes. There&rsquo;s nothing wrong with a little positive attention, but a lot isn&rsquo;t necessarily better. Picture this scenario. You do something noteworthy and a reporter from the local TV news station wants to interview you. That&rsquo;s great! You like it, your Mom calls saying she saw you on television and tells you how proud she is.</p>
-                    </div>
-                    <div class="pull-right"><small>4 minute read</small></div>
-                    <a class="btn btn-xs" href="http://techmadeplain.com/2014/the-downside-of-going-viral">Read More &nbsp;<span class="fa fa-chevron-right"></span></a>
-                </div>
-                <div class="post-summary">
-                    <h2><a href="http://techmadeplain.com/2014/creating-logo-without-breaking-bank">Creating a Logo Without Breaking the Bank</a></h2>
-                    <div class="content">
-                        <p>One of the many steps to starting a business is creating a logo. If you&rsquo;re a master of design, this step will be easy. But if your design skills are a work in progress, you&rsquo;ll want to pay someone to create a logo. I recently went through this process and I&rsquo;m pleased with how my logo turned out. I&rsquo;d like to share with you the resources I found in the process.</p>
-                    </div>
-                    <div class="pull-right"><small>6 minute read</small></div>
-                    <a class="btn btn-xs" href="http://techmadeplain.com/2014/creating-logo-without-breaking-bank">Read More &nbsp;<span class="fa fa-chevron-right"></span></a>
-                </div>
-                <div class="post-summary">
-                    <h2><a href="http://techmadeplain.com/2014/two-simple-ways-speed-up-web-site">Two Simple Ways to Speed Up Your Web Site</a></h2>
-                    <div class="content">
-                        <p>There&rsquo;s nothing wrong with slowing down and taking your time. I love to meditate and try to be in the now when I eat or go for a walk. But even if you&rsquo;re patient and enjoy taking life slowly, your web site should be like greased lightning. Here&rsquo;s why: Mobile devices User abandonment Google ranking Let&rsquo;s cover each one in turn. Mobile Devices Smart phones are an extremely popular way to browse the web, but data plans often have slow speeds.</p>
-                    </div>
-                    <div class="pull-right"><small>5 minute read</small></div>
-                    <a class="btn btn-xs" href="http://techmadeplain.com/2014/two-simple-ways-speed-up-web-site">Read More &nbsp;<span class="fa fa-chevron-right"></span></a>
-                </div>
-                <div class="post-summary">
-                    <h2><a href="http://techmadeplain.com/2014/embedding-youtube-videos-playlists-wordpress">Embedding YouTube Videos from Playlists Into Wordpress</a></h2>
-                    <div class="content">
-                        <p>To show videos on your Wordpress site, you can copy and paste the address for the video into your post. But while working with a client this past Wednesday, we discovered a problem. If the video is part of a YouTube playlist, Wordpress shows the playlist instead of the individual video. The solution is to copy and paste only the address for the video, without the playlist, but YouTube doesn&rsquo;t make that easy.</p>
-                    </div>
-                    <div class="pull-right"><small>2 minute read</small></div>
-                    <a class="btn btn-xs" href="http://techmadeplain.com/2014/embedding-youtube-videos-playlists-wordpress">Read More &nbsp;<span class="fa fa-chevron-right"></span></a>
-                </div>
-                <div class="post-summary">
-                    <h2><a href="http://techmadeplain.com/2014/how-to-sort-music-flash-drive-car-stereo">How to Sort Music on Your Flash Drive for Your Car Stereo</a></h2>
-                    <div class="content">
-                        <p>A few years ago my CD changer died and I decided it was time to install a new deck. The new deck had a USB port so I could plug in a flash drive with MP3 or WMA files and easily listen to all the music. It&rsquo;s been great to have so much music to listen to (way more than my 12-disc changer), but there was a slight annoyance. My music wasn&rsquo;t always sorted.</p>
-                    </div>
-                    <div class="pull-right"><small>3 minute read</small></div>
-                    <a class="btn btn-xs" href="http://techmadeplain.com/2014/how-to-sort-music-flash-drive-car-stereo">Read More &nbsp;<span class="fa fa-chevron-right"></span></a>
-                </div>
-                <div class="post-summary">
-                    <h2><a href="http://techmadeplain.com/2014/keep-excel-from-opening-full-screen-startup">How to Keep Excel From Always Opening Full Screen at Startup</a></h2>
-                    <div class="content">
-                        <p>This scenario won&rsquo;t apply to many people, but I&rsquo;m putting it out there for Google to index. Even if it only helps one other person in a similar situation, it&rsquo;s worth it after the time I spent looking for a solution. What Was Happening Every time I opened Excel 2013, the window was maximized, covering the entire screen. With a large monitor, this is never what you want. I didn&rsquo;t find any way to control this from Excel, and there wasn&rsquo;t much online.</p>
-                    </div>
-                    <div class="pull-right"><small>2 minute read</small></div>
-                    <a class="btn btn-xs" href="http://techmadeplain.com/2014/keep-excel-from-opening-full-screen-startup">Read More &nbsp;<span class="fa fa-chevron-right"></span></a>
-                </div>
-                <div class="post-summary">
-                    <h2><a href="http://techmadeplain.com/2014/help-forgot-password">Help, I Forgot My Password!</a></h2>
-                    <div class="content">
-                        <p>It&rsquo;s happened to the best of us. You thought you wrote it down. You&rsquo;re sure it&rsquo;s on a sticky note somewhere. Maybe you used a capital letter instead of a lower case one. Whatever happened, you find yourself at the login screen with no idea what your password is. Fear not, there is a way through. Before I show you what to do, let me just beat the drum again on the value of using a password manager.</p>
-                    </div>
-                    <div class="pull-right"><small>4 minute read</small></div>
-                    <a class="btn btn-xs" href="http://techmadeplain.com/2014/help-forgot-password">Read More &nbsp;<span class="fa fa-chevron-right"></span></a>
-                </div>
-                <div class="post-summary">
-                    <h2><a href="http://techmadeplain.com/2014/what-web-browser-should-i-use">What Web Browser Should I Use?</a></h2>
-                    <div class="content">
-                        <p>In A Short Tour of the Web Browser I discussed elements of common web browsers. Today I&rsquo;m going to discuss which browser to use. Before I can answer, I need to ask another question. Asking what browser to use is like asking, &ldquo;What is the best food?&rdquo; Without a qualifier, the answer won&rsquo;t be of much use. The secondary question is: Why do you ask? Windows and Mac users already have a web browser that comes installed.</p>
-                    </div>
-                    <div class="pull-right"><small>4 minute read</small></div>
-                    <a class="btn btn-xs" href="http://techmadeplain.com/2014/what-web-browser-should-i-use">Read More &nbsp;<span class="fa fa-chevron-right"></span></a>
-                </div>
-                <div class="post-summary">
-                    <h2><a href="http://techmadeplain.com/2014/how-to-choose-the-best-internet-service-provider">How to Choose the Best Internet Service Provider</a></h2>
-                    <div class="content">
-                        <p>My brother Matt emailed me today saying he was fed up with CenturyLink&rsquo;s slow internet service and blackouts. He asked for pointers on how to find a good internet service provider and what to look for. He also admitted he wasn&rsquo;t an informed consumer when they originally signed up and probably chose the cheapest option. I would imagine he&rsquo;s not alone. I, on the other hand, spent hours and hours researching our options for internet access when we moved from California to Indiana.</p>
-                    </div>
-                    <div class="pull-right"><small>8 minute read</small></div>
-                    <a class="btn btn-xs" href="http://techmadeplain.com/2014/how-to-choose-the-best-internet-service-provider">Read More &nbsp;<span class="fa fa-chevron-right"></span></a>
-                </div>
-                <div class="post-summary">
-                    <h2><a href="http://techmadeplain.com/2014/is-hosting-packaged-with-web-development-a-good-deal">Is Hosting Packaged With Web Development a Good Deal?</a></h2>
-                    <div class="content">
-                        <p>Emily, a new friend of mine, asked a web hosting question that I bet you may encounter too. She&rsquo;s planning to set up a Wordpress site and didn&rsquo;t know what web hosting service to use. Her web developer offered to throw in a domain name and web hosting along with his development services. She asked whether she should take the offer or use a more well-known hosting service. Instead of just giving my answer, I&rsquo;m going to lay out the pros and cons so you can make a more informed decision.</p>
-                    </div>
-                    <div class="pull-right"><small>5 minute read</small></div>
-                    <a class="btn btn-xs" href="http://techmadeplain.com/2014/is-hosting-packaged-with-web-development-a-good-deal">Read More &nbsp;<span class="fa fa-chevron-right"></span></a>
-                </div>
-            </div>
-            <div class="col-md-1"></div>
-            {{ partial "sidebar.html" . }}
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+          {{ partial "sidebar.html" . }}
         </div>
-        {{ partial "footer.html" . }}
+    </div>
+{{ partial "footer.html" . }}

@@ -1,0 +1,34 @@
+{{ partial "header.html" . }}
+<body>
+ {{ partial "topnav.html" . }}
+
+ <div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div>
+                {{ .Content }}
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <div class="sidebar-postinfo">
+                <h4>{{ .Date.Format "January 2, 2006" }}<br>
+                <small>{{ .WordCount }} words</small><br>
+                <small>{{ .ReadingTime }} minute read</small>
+                </h4>
+                {{ with .Params.categories }}
+                    <strong>Categories</strong>
+                    <ul class="list-unstyled">
+                    {{ range . }}
+                    <li>
+                        <a href="{{ .Site.BaseURL }}/categories/{{ . | urlize }}/index.html">{{ . | title }}</a>
+                    </li>
+                    {{ end }}
+                {{ end }}
+                <hr>
+                
+            </div>
+          {{ partial "sidebar.html" . }}
+        </div>
+    </div>
+{{ partial "footer.html" . }}

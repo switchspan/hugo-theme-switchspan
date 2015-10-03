@@ -1,21 +1,23 @@
 {{ partial "header.html" . }}
-
-<div id="main-content" class="main-content">
-
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
-
-			<header class="archive-header">
-				<h1 class="archive-title">{{ .Title }} Archive</h1>
-			</header>
-
-			{{ range where .Data.Pages "Section" "post" }}
-				{{ partial "content.html" . }}
-			{{ end }}
-		
-		</div><!-- #content -->
-	</div><!-- #primary -->
-	{{ partial "sidebar.html" . }}
-</div><!-- #main-content -->
-
+<body>  
+{{ partial "topnav.html" . }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+        	<div class="well well-sm">
+	        	<strong>Items in category <code>{{ .Title }}</code></strong>
+				<ul class="list-unstyled">
+	            {{ range where .Data.Pages "Section" "post" }}
+	                <li>
+						<h5><a href="{{ .Permalink }}/index.html">{{ .Title }}</a><br>
+						<small>posted on {{ .Date.Format "January 2, 2006" }}</small></h5>
+					</li>
+	            {{ end }}
+	        	</ul>
+        	</div>
+        </div>
+        <div class="col-md-3">
+          {{ partial "sidebar.html" . }}
+        </div>
+    </div>
 {{ partial "footer.html" . }}
