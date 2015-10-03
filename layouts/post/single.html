@@ -16,12 +16,13 @@
                 <small>{{ .WordCount }} words</small><br>
                 <small>{{ .ReadingTime }} minute read</small>
                 </h4>
+                {{ $baseUrl := .Site.BaseURL }}
                 {{ with .Params.categories }}
                     <strong>Categories</strong>
                     <ul class="list-unstyled">
                     {{ range . }}
                     <li>
-                        <a href="{{ .Site.BaseURL }}/categories/{{ . | urlize }}/index.html">{{ . | title }}</a>
+                        <a href="{{ $baseUrl }}/categories/{{ . | urlize }}/index.html">{{ . | title }}</a>
                     </li>
                     {{ end }}
                 {{ end }}
