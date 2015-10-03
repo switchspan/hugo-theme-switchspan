@@ -1,6 +1,6 @@
-# Twenty Fourteen
+# Switchspan
 
-Twenty Fourteen is a responsive, two-column [hugo](http://hugo.spf13.com) theme based on the [Wordpress theme](https://wordpress.org/themes/twentyfourteen) of the same name.
+Switchspan is a responsive, two-column [hugo](http://hugo.spf13.com) theme based on the [Twenty Fourteen theme](https://github.com/jaden/twentyfourteen) ported by [Dan Hersam](http://dan.hersam.com).
 
 It features a dark color scheme and a left sidebar.
 
@@ -19,14 +19,14 @@ Example:
 Put pages in the top navigation bar by adding `menu=main` in the page's front matter.
 
 ## Author
-**wordpressdotorg**
-- <https://wordpress.org/themes/twentyfourteen>
-- <https://themes.trac.wordpress.org/browser/twentyfourteen/1.3>
-
-## Ported By
 **Dan Hersam**
 - <https://github.com/jaden>
 - <http://dan.hersam.com>
+
+## Ported By
+**Ken Taylor**
+- <https://github.com/switchspan>
+- <http://switchspan.com>
 
 ## License
 
